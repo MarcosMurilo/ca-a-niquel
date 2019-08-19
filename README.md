@@ -1,2 +1,2 @@
-# ca-a-niquel
+# caca niquel
 Jogo caça níquel
