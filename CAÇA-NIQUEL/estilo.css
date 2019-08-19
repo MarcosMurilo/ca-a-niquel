@@ -1,0 +1,97 @@
+body {
+    background: rgb(107, 112, 108);
+    font: normal 24pt Arial;
+}
+
+header{
+     color: wheat;
+     text-align: center;
+}
+
+section{
+      position: absolute;
+      background: rgb(43, 48, 43);
+      border-radius: 10px;
+      padding: 15px;
+      width: 800px;
+      height: auto;
+      margin:0 auto;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+}
+
+.placar {
+    background: rgb(59, 61, 59);
+    border-radius: 5px;
+    font: normal 24px Arial;
+    box-shadow: 5px 5px 10px black;
+    color: white;
+    margin-bottom: 15px;
+    height: 40px;
+   
+
+}
+
+#credito {
+    font: normal 20px Arial;
+    
+}
+
+.saldo {
+    color: yellow;
+    margin-bottom: 15px;
+}
+
+.img-1 {
+   
+    float: left;
+    border-style: solid;
+    background: rgb(46, 143, 46);
+    border-radius: 5px;
+    font: normal 18px Arial;
+    box-shadow: 5px 5px 10px black;
+    background-image: url(img/sifrao.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 200px ;
+    width: 200px;
+    height: 200px;   
+}
+
+.img-2 {
+    
+    float: left;
+    margin-left: 10px;
+    border-style: solid;
+    background: rgb(46, 143, 46);
+    border-radius: 5px;
+    font: normal 18px Arial;
+    box-shadow: 5px 5px 10px black;
+    background-image: url(img/sifrao.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 200px ;
+    width: 200px;
+    height: 200px;   
+}
+
+.img-3 {
+    
+    float: left;
+    margin-left: 10px;
+    border-style: solid;
+    background: rgb(46, 143, 46);
+    border-radius: 5px;
+    font: normal 18px Arial;
+    box-shadow: 5px 5px 10px black;
+    background-image: url(img/sifrao.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 200px ;
+    width: 200px;
+    height: 200px;   
+}
+
+
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
