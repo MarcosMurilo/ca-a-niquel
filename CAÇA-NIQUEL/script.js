@@ -33,9 +33,9 @@ function rodarRoleta(){
 ]
 let bancoImg2 = [
 
-   "img/img-001.jpeg",
-   "img/img-002.jpeg",
-   "img/img-003.jpeg",
+   "img/img-001.jpeg", 
+   "img/img-002.jpeg", 
+   "img/img-003.jpeg", 
    "img/img-004.jpeg",
    "img/img-005.jpeg",
    "img/img-006.jpeg",
@@ -50,47 +50,97 @@ let bancoImg2 = [
 
 let bancoImg3 = [
 
-   "img/img-001.jpeg",
-   "img/img-002.jpeg",
-   "img/img-003.jpeg",
-   "img/img-004.jpeg",
-   "img/img-005.jpeg",
-   "img/img-006.jpeg",
-   "img/img-007.jpeg",
-   "img/img-008.jpg",
-   "img/img-009.jpg",
-   "img/img-010.jpeg",
-   "img/img-011.jpg",
-   "img/img-012.jpg",
-   "img/img-013.jpg"
+   "img/img-001.jpeg", //0  
+   "img/img-002.jpeg", // 1
+   "img/img-003.jpeg", // 2
+   "img/img-004.jpeg", //3
+   "img/img-005.jpeg", // 4
+   "img/img-006.jpeg", // 5
+   "img/img-007.jpeg", // 6
+   "img/img-008.jpg", // 7
+   "img/img-009.jpg", // 8
+   "img/img-010.jpeg", // 9
+   "img/img-011.jpg", // 10
+   "img/img-012.jpg", // 11
+   "img/img-013.jpg" // 12
 ]
-   // limpa os quadroscom as fotos a cada vez q o botão é acionado
+
+   /* 
+    valores adicionais de acordo com a imagem:
+    de [0] -> [2] + 5
+    de [3] ->  [5] + 10
+    de [6] -> [8] + 15
+    de [9] -> [11] + 20
+   */
+   
+   // limpa os quadros com as fotos a cada vez q o botão 'jogar' é acionado
          eleQuadro3.innerHTML = ''
          eleQuadro2.innerHTML = ''
          eleQuadro1.innerHTML = ''
        
          // "girando a roleta das imagens"
-         let ran3 =  Math.floor(Math.random() * bancoImg.length) //mesmo valor ***
+         // ran3, 2, 1 sao os index capturados
+         let ran3 =  Math.floor(Math.random() * bancoImg.length) 
          let ran2 =  Math.floor(Math.random() * bancoImg.length)
          let ran1 =  Math.floor(Math.random() * bancoImg.length)
          
         
          // SOMANDO OU SUBTRAINDO OS VALORES DO SALDO CONFORME RESULTADO DA ROLETA
          if ( ran1 == ran2 && ran1 == ran3 ){
-
-            recebeRoleta =  150
+            if ( ran1 == 12 && ran2 == 12 && ran3 == 12) {
+               recebeRoleta = 150
+               recebeRoleta += 300
+            }
+            
             
        } else if (ran1 == ran2 && ran1 != ran3){
 
+         if (ran1 >= 0 && ran1 <= 2 && ran2 >= 0 && ran2 <=2) {
             recebeRoleta = 20
+            recebeRoleta += 5
+         } else if ( ran1 >= 3 && ran1 <= 5 && ran2 >= 3 && ran2 <=5) {
+            recebeRoleta = 20
+            recebeRoleta += 10
+         } else if ( ran1 >= 6 && ran1 <= 8 && ran2 >= 6 && ran2 <=8) {
+            recebeRoleta = 20
+            recebeRoleta += 15
+         } else if ( ran1 >= 9 && ran1 <= 11 && ran2 >= 9 && ran2 <= 11 ) {
+            recebeRoleta = 20
+            recebeRoleta += 20
+         }
+           
            
        } else if (ran1 == ran3 ) {
 
-            recebeRoleta =  20
+         if (ran1 >= 0 && ran1 <= 2 && ran3 >= 0 && ran3 <=2) {
+            recebeRoleta = 20
+            recebeRoleta += 5
+         } else if ( ran1 >= 3 && ran1 <= 5 && ran3 >= 3 && ran3 <=5) {
+            recebeRoleta = 20
+            recebeRoleta += 10
+         } else if ( ran1 >= 6 && ran1 <= 8 && ran3 >= 6 && ran3 <=8) {
+            recebeRoleta = 20
+            recebeRoleta += 15
+         } else if ( ran1 >= 9 && ran1 <= 11 && ran3 >= 9 && ran3 <= 11 ) {
+            recebeRoleta = 20
+            recebeRoleta += 20
+         }
             
        } else if (ran2 == ran3 ) {
 
+         if (ran2 >= 0 && ran2 <= 2 && ran3 >= 0 && ran3 <=2) {
             recebeRoleta = 20
+            recebeRoleta += 5
+         } else if ( ran2 >= 3 && ran2 <= 5 && ran3 >= 3 && ran3 <=5) {
+            recebeRoleta = 20
+            recebeRoleta += 10
+         } else if ( ran2 >= 6 && ran2 <= 8 && ran3 >= 6 && ran3 <=8) {
+            recebeRoleta = 20
+            recebeRoleta += 15
+         } else if ( ran2 >= 9 && ran2 <= 11 && ran3 >= 9 && ran3 <= 11 ) {
+            recebeRoleta = 20
+            recebeRoleta += 20
+         }
             
        }else if (ran1 != ran2 && ran2 != ran3 && ran2 != ran3){
             
@@ -152,7 +202,7 @@ let bancoImg3 = [
       var credito = parseInt(recebeInput) // passa o value do input para 'int'
       
       let item = document.createElement('option') // texto  'Digite um numero....
-      item.text = `SALDO R$ ${ creditoSomado = credito + recebeRoleta}`// só texo na tela
+      item.text = `SALDO $ ${ creditoSomado = credito + recebeRoleta}`// só texo na tela
       
       item.value =  credito // dispara msg de game over caso crédito fique 'zero'
       if (creditoSomado <= 0) {
