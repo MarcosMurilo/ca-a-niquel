@@ -7,48 +7,14 @@ var saldo = document.getElementById('saldo')
 var mostraCredito = document.getElementById('saldo') // texto que mostra o R$ credito
 var recebeRoleta // resultado da roleta
 var corSection = document.getElementById('corSection')
+var bod = document.getElementById('bod')
 
 
 
 function rodarRoleta(){
 
    
-
-    // ARRAY FONTE img/img-001.jpeg     
-    let bancoImg = [
-
-      "img/img-001.jpeg",
-      "img/img-002.jpeg",
-      "img/img-003.jpeg",
-      "img/img-004.jpeg",
-      "img/img-005.jpeg",
-      "img/img-006.jpeg",
-      "img/img-007.jpeg",
-      "img/img-008.jpg",
-      "img/img-009.jpg",
-      "img/img-010.jpeg",
-      "img/img-011.jpg",
-      "img/img-012.jpg",
-      "img/img-013.jpg"
-]
-let bancoImg2 = [
-
-   "img/img-001.jpeg", 
-   "img/img-002.jpeg", 
-   "img/img-003.jpeg", 
-   "img/img-004.jpeg",
-   "img/img-005.jpeg",
-   "img/img-006.jpeg",
-   "img/img-007.jpeg",
-   "img/img-008.jpg",
-   "img/img-009.jpg",
-   "img/img-010.jpeg",
-   "img/img-011.jpg",
-   "img/img-012.jpg",
-   "img/img-013.jpg"
-]
-
-let bancoImg3 = [
+let bancoImg = [
 
    "img/img-001.jpeg", //0  
    "img/img-002.jpeg", // 1
@@ -79,7 +45,7 @@ let bancoImg3 = [
          eleQuadro1.innerHTML = ''
        
          // "girando a roleta das imagens"
-         // ran3, 2, 1 sao os index capturados
+         // ran3, 2, 1 sao os index do array capturados
          let ran3 =  Math.floor(Math.random() * bancoImg.length) 
          let ran2 =  Math.floor(Math.random() * bancoImg.length)
          let ran1 =  Math.floor(Math.random() * bancoImg.length)
@@ -92,7 +58,7 @@ let bancoImg3 = [
             
             }
             
-            
+           // os valores adicionados são diferentes de acordo com as fotos iguais 
         else if (ran1 == ran2 && ran1 != ran3){
 
          if (ran1 >= 0 && ran1 <= 2 && ran2 >= 0 && ran2 <=2) {
@@ -150,16 +116,16 @@ let bancoImg3 = [
 
          // ADICIONA UM INDEX DE FORMA RANDÔMICA
         // adiciona as fotos aleatóriamente quadro 3
-      if(bancoImg.length == bancoImg.length) { // mesmo valor ***
+      if(bancoImg.length == bancoImg.length) { 
          var quadro3 = document.createElement('img')
-         quadro3.setAttribute('src',`${bancoImg3[ran3]}`)
+         quadro3.setAttribute('src',`${bancoImg[ran3]}`)
          quadro3.setAttribute('width','200')
          quadro3.setAttribute('height','200')
          eleQuadro3.appendChild(quadro3)
 
         // adiciona as fotos aleatóriamente quadro 2
          var quadro2 = document.createElement('img')
-         quadro2.setAttribute('src',`${bancoImg2[ran2]}`)
+         quadro2.setAttribute('src',`${bancoImg[ran2]}`)
          quadro2.setAttribute('width','200')
          quadro2.setAttribute('height','200')
          eleQuadro2.appendChild(quadro2)
@@ -177,6 +143,10 @@ let bancoImg3 = [
     // função faz correr as fotos nos 3 quadros
   function roda() {       
       rodandoRoleta = setInterval(rodarRoleta, 100)
+      document.querySelector('h1').style.color = "#f5deb3"
+      bod.style.backgroundImage = "linear-gradient(to right, red , yellow)" // troca o gradiente do body
+   
+     
   }
 
  
@@ -192,9 +162,11 @@ let bancoImg3 = [
 
          corSection.style.backgroundColor = "#ffa500" // cor fundo amarela
          let emojVariaTitulo = document.querySelector('h1').innerHTML = ganha() + "Jogo Caça Níquel" + ganha();
+         document.querySelector('h1').style.color = "#ffa500"
       } else {
          corSection.style.backgroundColor = "#c20c0c" // cor fundo vermelha
          let emojVariaTitulo = document.querySelector('h1').innerHTML = perde() + "Jogo Caça Níquel" + perde();
+         document.querySelector('h1').style.color = "#c20c0c"
       }
 
       var recebeInput = document.getElementById('credito').value // ID  input
@@ -203,24 +175,24 @@ let bancoImg3 = [
       saldo.innerHTML ='' // limpa o valor senão fica colocando os valores lado a lado sempre que aperta o botão "Parar"
       var credito = parseInt(recebeInput) // passa o value do input para 'int'
       
-      let item = document.createElement('option') // texto  'Digite um numero....
-      item.text = `SALDO $ ${ creditoSomado = credito + recebeRoleta}`// só texo na tela
-      //let emojVariaTitulo = document.querySelector('h1').innerHTML = ganha() + "Jogo Caça Níquel" + perde();
+      let item = document.createElement('option') 
+      item.text = `SALDO $ ${ creditoSomado = credito + recebeRoleta}`
+      
       item.value =  credito // dispara msg de game over caso crédito fique 'zero'
       if (creditoSomado <= 0) {
          alert("GAME OVER!")
       }
-      // red:  corSection.style.backgroundColor = "#c20c0c" , #0a4fe2
-      // amarela: corSection.style.backgroundColor = "#ffa500"
+     
+
       inputCredito.value = creditoSomado // adiciona o valor "somado" no vampo input
       mostraCredito.appendChild(item)
       var para = clearInterval(rodandoRoleta)
-      
+      bod.style.backgroundImage = "linear-gradient(to right, yellow , red)" // troca o gradiente do body
   }
   //mostra emoji´s felizes ao ganhar crédito
   function ganha(){
     // ARRAY FONTE      
-    let emoj = ["\u{1F913}","\u{1F973}","\u{1F911}","\u{1F619}","\u{1F929}", "\u{1F4B5}", "\u{1F61C}", "\u{1F91E}","\u{1F64F}","\u{2728}","\u{1F3C6}","\u{1F48E}"]//U+1F91E U+1F64F	 U+2728	U+1F3C6 U+1F48E
+    let emoj = ["\u{1F913}","\u{1F973}","\u{1F911}","\u{1F619}","\u{1F929}", "\u{1F4B5}", "\u{1F61C}", "\u{1F91E}","\u{1F64F}","\u{2728}","\u{1F3C6}","\u{1F48E}"]
     let ran =  Math.floor(Math.random() * emoj.length) 
     return emoj[ran] 
        
@@ -229,7 +201,7 @@ let bancoImg3 = [
 // mostra emoji´s tristes ao perder crédito
 function perde(){
     // ARRAY FONTE      
-    let emoj = ["\u{1F92E}","\u{1F630}","\u{1F62D}","\u{1F623}","\u{1F97A}","\u{1F4B8}","\u{1F621}","\u{1F631}","\u{1F624}","\u{1F92C}","\u{1F480}","\u{1F4A9}"]// U+1F631  U+1F624 U+1F92C	 U+1F480 U+1F4A9
+    let emoj = ["\u{1F92E}","\u{1F630}","\u{1F62D}","\u{1F623}","\u{1F97A}","\u{1F4B8}","\u{1F621}","\u{1F631}","\u{1F624}","\u{1F92C}","\u{1F480}","\u{1F4A9}"]
     let ran =  Math.floor(Math.random() * emoj.length) 
     return emoj[ran] 
   

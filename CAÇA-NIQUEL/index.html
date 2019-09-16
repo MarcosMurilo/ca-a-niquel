@@ -4,32 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Modelo de Exercício</title>
+    <title>Modelo de Exercício </title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-<body>
+<body id="bod">
     <header>
-        <h1>Jogo Caça Níquel</h1>
+        <h1> &#x1F4B0 Jogo Caça Níquel  &#x1F4B0</h1>
     </header>
     
-    <section id="corSection">
+    <section id="corSection"> 
+        <div class="tudo">
         <div class="placar" id="placar">
+               
                 <input class="credito" id="credito" type="number">
                 <button class="credito" id="jogar" onclick="roda()">Jogar</button>
                 <button class="credito" id="para" onclick="para()">Parar</button>
+                
+               
         </div>
          <div class="saldo" id="saldo" > 
-                <option>SALDO R$</option>       
+                <option>SALDO $</option>       
          </div>
-                
+            <div class="envolveIMG">
                 <div class="img-1" id="img-1"> </div>
-                <div class="img-2" id="img-2"> </div>
-                <div class="img-3" id="img-3"> </div>
-       
+                <div class="img-1" id="img-2"> </div>
+                <div class="img-1" id="img-3"> </div>
+            </div>
+       </div>
     </section>
      
     <footer>
-         <p>&copy; Bom jogo</p>
+         
     </footer> 
     <script src="script.js"></script>   
 </body>
